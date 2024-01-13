@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQSendLog", "RMQSendLog\RMQSendLog.csproj", "{4522A8E7-09CA-4F8D-BC56-665EA0B9E699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMQRecvLog", "RMQRecvLog\RMQRecvLog.csproj", "{FFC44774-88B6-4789-BDCE-CCE6DA7C8800}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4522A8E7-09CA-4F8D-BC56-665EA0B9E699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4522A8E7-09CA-4F8D-BC56-665EA0B9E699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4522A8E7-09CA-4F8D-BC56-665EA0B9E699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4522A8E7-09CA-4F8D-BC56-665EA0B9E699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFC44774-88B6-4789-BDCE-CCE6DA7C8800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFC44774-88B6-4789-BDCE-CCE6DA7C8800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFC44774-88B6-4789-BDCE-CCE6DA7C8800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFC44774-88B6-4789-BDCE-CCE6DA7C8800}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D055C2CE-6E15-4218-9D01-6D655F606568}
+	EndGlobalSection
+EndGlobal
