@@ -5,7 +5,7 @@ namespace AutoMapperSample;
 
 internal class TerminalApp
 {
-    readonly JsonSerializerOptions _serializerOptions = new()
+    private readonly JsonSerializerOptions _serializerOptions = new()
     {
         WriteIndented = true,
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping

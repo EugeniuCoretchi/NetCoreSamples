@@ -16,4 +16,3 @@ internal class BankCard
 
     public Guid BankId { get; set; }
 }
-

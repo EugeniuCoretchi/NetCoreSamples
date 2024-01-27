@@ -16,6 +16,3 @@ var viewModel = mapper.Map<PersonViewModel>(person);
 terminal.Print(bank);
 terminal.Print(card);
 terminal.Print(viewModel);
-
-
-

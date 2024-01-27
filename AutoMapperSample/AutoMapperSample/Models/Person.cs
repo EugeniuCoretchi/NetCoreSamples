@@ -18,10 +18,7 @@ internal class Person
     {
         BankCards ??= new List<BankCard>();
 
-        if (BankCards?.FirstOrDefault(x => x.Id == bankCard.Id) != default)
-        {
-            return false;
-        }
+        if (BankCards?.FirstOrDefault(x => x.Id == bankCard.Id) != default) return false;
         BankCards?.Add(bankCard);
         return true;
     }

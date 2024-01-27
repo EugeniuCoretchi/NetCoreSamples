@@ -11,5 +11,4 @@ internal class PersonViewModel
     public int AddressesCount { get; set; }
 
     public int BankCardsCount { get; set; }
-
 }
