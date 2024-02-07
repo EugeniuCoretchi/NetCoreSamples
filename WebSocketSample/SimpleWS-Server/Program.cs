@@ -3,6 +3,8 @@ using System.Net;
 using System.Net.WebSockets;
 using System.Text;
 
+using WebSocketSample.Common;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 builder.WebHost.UseUrls("http://localhost:6969");
@@ -13,23 +15,17 @@ app.Map("/ws", async context =>
     {
         using var ws = await context.WebSockets.AcceptWebSocketAsync();
 
-        while (true)
+        try
         {
-            var message = $"time now is: {DateTime.Now.ToString("HH:mm:ss")}";
-            var bytes = Encoding.UTF8.GetBytes(message);
-            var arraySegment = new ArraySegment<byte>(bytes, 0, bytes.Length);
-            if (ws.State == WebSocketState.Open)
-            {
-                await ws.SendAsync(arraySegment,
-                                    WebSocketMessageType.Text,
-                                    true,
-                                    CancellationToken.None);
-            }
-            else if(ws.State == WebSocketState.Closed || ws.State == WebSocketState.Aborted)
-            {
-                break;
-            }
-            Thread.Sleep(100);
+            new WsWorker(ws).Wait();
+        }
+        catch (AggregateException ex)
+        {
+            Console.WriteLine($"Client abort connection: {ex.Message}");
+        }
+        catch (Exception x)
+        {
+            Console.WriteLine($"Unknown exception: {x.Message}");
         }
     }
     else

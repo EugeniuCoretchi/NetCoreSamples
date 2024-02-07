@@ -1,27 +1,25 @@
-﻿using System.Net.WebSockets;
+﻿using WebSocketSample;
+using System.Net.WebSockets;
 using System.Text;
+using WebSocketSample.Common;
+
+
 var ws = new ClientWebSocket();
 Console.WriteLine("Connecting to server ...");
-await ws.ConnectAsync(new Uri("ws://localhost:6969/ws"),
-  CancellationToken.None);
+await ws.ConnectAsync(new Uri("ws://localhost:6969/ws"), CancellationToken.None);
 Console.WriteLine("Connected!");
 
 
-var rcvTask = Task.Run(async () =>
-{
-    var buffer = new byte[10240];
-    while (true)
-    {
-        var result = await ws.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+var worker = new WsWorker(ws);
 
-        if(result.MessageType == WebSocketMessageType.Close)
-        {
-            break;
-        }
+await Task.Delay(1000);
+await ws.SendAsync("message some 1");
+await ws.SendAsync("ping");
+await Task.Delay(1000);
+await ws.SendAsync("message some 2");
+await ws.SendAsync("ping");
+await Task.Delay(1000);
+await ws.SendAsync("message some 3");
+await ws.SendAsync("ping");
 
-        var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
-        Console.WriteLine(message);
-    }
-});
-
-await rcvTask;
+await worker.WaitAsync();

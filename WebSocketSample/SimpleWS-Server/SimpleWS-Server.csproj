@@ -7,4 +7,8 @@
     <RootNamespace>SimpleWS_Server</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebSocketSample.Common\WebSocketSample.Common.csproj" />
+  </ItemGroup>
+
 </Project>
