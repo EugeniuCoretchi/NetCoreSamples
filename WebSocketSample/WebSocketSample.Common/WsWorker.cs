@@ -9,12 +9,15 @@ namespace WebSocketSample.Common
     public class WsWorker
     {
         readonly byte[] buffer = new byte[10240];
-        private static int X = 0;
+
+        private static int clientNum = 0;
+
         private Task receiveTask;
+
         public WsWorker(WebSocket ws)
         {
-            X++;
-            Console.WriteLine($"Client accepted: {X}:{ws.GetHashCode()}");
+            clientNum++;
+            Console.WriteLine($"Client accepted: {clientNum}:{ws.GetHashCode()}");
             receiveTask = Task.Run(async () =>
             {
                 while (true)

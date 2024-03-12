@@ -6,7 +6,7 @@ using WebSocketSample.Common;
 
 var ws = new ClientWebSocket();
 Console.WriteLine("Connecting to server ...");
-await ws.ConnectAsync(new Uri("ws://localhost:6969/ws"), CancellationToken.None);
+await ws.ConnectAsync(new Uri("ws://localhost:5148/ws"), CancellationToken.None);
 Console.WriteLine("Connected!");
 
 

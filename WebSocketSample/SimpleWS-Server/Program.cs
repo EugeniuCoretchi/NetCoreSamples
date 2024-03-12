@@ -6,9 +6,15 @@ using System.Text;
 using WebSocketSample.Common;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var app = builder.Build();
+
 builder.WebHost.UseUrls("http://localhost:6969");
+
 app.UseWebSockets();
+
+//app.MapControllers();
+
 app.Map("/ws", async context => 
 {
     if(context.WebSockets.IsWebSocketRequest)
@@ -17,7 +23,7 @@ app.Map("/ws", async context =>
 
         try
         {
-            new WsWorker(ws).Wait();
+            await new WsWorker(ws).WaitAsync();
         }
         catch (AggregateException ex)
         {
